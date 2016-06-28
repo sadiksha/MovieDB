@@ -1,6 +1,9 @@
 <h1>Movies</h1>
 <%= link_to "New Movie", new_movie_path %>
-<% @movies.each do |movie| %>
-  <%= movie.title %>
-  <%= movie.description %>
-<% end %>
+<table class="table">
+  <tr>
+    <th> Title </th>
+    <th> Description </th>
+  </tr>
+  <%= render "list", {movies: @movies} %>
+</table>
