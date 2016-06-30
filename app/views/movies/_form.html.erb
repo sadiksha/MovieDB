@@ -14,7 +14,7 @@
   <div class="form-group">
     <%= f.label :category_id, "Category" %>
     <div>
-      <%= f.collection_select :category_id, Category.all, :id, :name %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, {include_blank: true} %>
     </div>
   </div>
   <%= f.submit "Create" %>
