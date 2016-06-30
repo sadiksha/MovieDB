@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 ["Action", "Drama", "Horror", "Comedy"].each do |category_name|
-  Category.first_or_create(name: category_name)
+  Category.find_or_create_by(name: category_name)
 end
