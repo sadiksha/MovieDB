@@ -13,4 +13,13 @@ describe Category, :type => :model do
     category.movies << movie
     expect(category.movies.first).to be movie
   end
+
+  it "orders category by ascending name by default" do
+    first_category = Category.create("horror")
+    second_category = Category.create("animated")
+    third_category = Category.create("comedy")
+    names = Category.all.map(&:name)
+    expected = ["animated", "comedy", "horror"]
+    expect(names).to eq(expected)
+  end
 end
