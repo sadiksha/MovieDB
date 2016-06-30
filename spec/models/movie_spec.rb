@@ -7,5 +7,4 @@ describe Movie, :type => :model do
     expect(movie.title).to eq("test movie")
     expect(movie.description).to eq("test description text")
   end
-
 end

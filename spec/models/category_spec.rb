@@ -6,4 +6,11 @@ describe Category, :type => :model do
     category.save
     expect(category.name).to eq("test category")
   end
+
+  it "has many movies" do
+    movie = Movie.new
+    category = Category.new
+    category.movies << movie
+    expect(category.movies.first).to be movie
+  end
 end
