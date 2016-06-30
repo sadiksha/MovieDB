@@ -11,6 +11,12 @@
       <%= f.text_area :description %>
     </div>
   </div>
+  <div class="form-group">
+    <label for="movie_category_id">Category</label>
+    <div>
+      <%= f.collection_select :category_id, Category.all, :id, :name %>
+    </div>
+  </div>
   <%= f.submit "Create" %>
 <% end %>
 <style>
