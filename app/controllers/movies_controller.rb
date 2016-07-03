@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
 
   before_filter :authenticate_user!, except: [:index, :show]
   def index
-    @movies = Movie.all
+    @movies = Movie.all.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
