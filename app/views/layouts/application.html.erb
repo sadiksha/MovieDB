@@ -18,10 +18,15 @@
             <li class="active"><a href="/">Movies</a></li>
           </ul>
         </div>
+        <div id="user_nav">
+          <%= render "devise/shared/links" %>
+        </div>
       </div>
     </nav>
 
     <div class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
   </body>

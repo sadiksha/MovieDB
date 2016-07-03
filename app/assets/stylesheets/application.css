@@ -17,3 +17,14 @@
 body {
   padding-top: 70px;
 }
+
+#user_nav {
+  float: left;
+  max-height: 340px;
+  padding-top: 15px;
+}
+
+.navbar-collapse {
+  width: 50%;
+  float: left;
+}
