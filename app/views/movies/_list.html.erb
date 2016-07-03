@@ -2,6 +2,7 @@
   <tr>
     <td><%= link_to movie.title, movie_path(movie) %></td>
     <td><%= movie.description %></td>
+    <td><%= movie.category.name %></td>
     <td><%= link_to "Edit", edit_movie_path(movie) %></td>
   </tr>
 <% end %>
