@@ -2,9 +2,9 @@ require "rails_helper"
 
 describe Movie, :type => :model do
   it "has attributes title, description" do
-    movie = Movie.new(title: "test movie", description: "test description text")
+    movie = FactoryGirl.create(:movie)
     movie.save
-    expect(movie.title).to eq("test movie")
-    expect(movie.description).to eq("test description text")
+    expect(movie.title).to eq("My First Movie")
+    expect(movie.description).to eq("This is my first description")
   end
 end
