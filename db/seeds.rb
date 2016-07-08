@@ -8,3 +8,7 @@
 ["Action", "Drama", "Horror", "Comedy"].each do |category_name|
   Category.find_or_create_by(name: category_name)
 end
+
+(1..5).to_a.each do |score|
+  Rating.find_or_create_by(score: score)
+end
