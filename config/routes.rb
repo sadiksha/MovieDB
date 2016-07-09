@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root 'movies#index'
 
   resources :movies do
-    resources :ratings
+    resources :ratings, except: [:show, :index]
   end
 end
