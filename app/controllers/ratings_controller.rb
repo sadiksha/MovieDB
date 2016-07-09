@@ -1,7 +1,12 @@
 class RatingsController < ApplicationController
   def new
     @movie = Movie.find(params[:movie_id])
-    @rating = Rating.new
+    if Rating.exists_for_user_and_movie?(@movie, current_user)
+      flash[:notice] = "You cannot rate one movie twice."
+      redirect_to movies_path
+    else
+      @rating = Rating.new
+    end
   end
 
   def create
