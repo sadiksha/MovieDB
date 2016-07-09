@@ -3,11 +3,11 @@
     <%= f.label :score %>
     <div>
       <% [1,2,3,4,5].each do |score| %>
-      <br><%= radio_button_tag 'score', score %>
+        <br><%= radio_button_tag 'score', score, (score.to_f == @rating.score.to_f) %>
       <%= label_tag "score_#{score}", score %>
       <% end %>
     </div>
   </div>
-  <%= f.submit "Create" %>
+  <%= f.submit "Submit" %>
 <% end %>
 

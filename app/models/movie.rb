@@ -12,4 +12,8 @@ class Movie < ActiveRecord::Base
     total_rating = ratings.map(&:score).sum
     ((total_rating / number_of_rating.to_f).to_f).round(2)
   end
+
+  def has_ratings?(user)
+    ratings.where(user: user)
+  end
 end
