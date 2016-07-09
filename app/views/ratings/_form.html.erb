@@ -1,0 +1,13 @@
+<%= form_for [@movie, @rating] do |f| %>
+  <div class="form-group">
+    <%= f.label :score %>
+    <div>
+      <% [1,2,3,4,5].each do |score| %>
+      <br><%= radio_button_tag 'score', score %>
+      <%= label_tag "score_#{score}", score %>
+      <% end %>
+    </div>
+  </div>
+  <%= f.submit "Create" %>
+<% end %>
+
