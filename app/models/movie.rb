@@ -6,6 +6,9 @@ class Movie < ActiveRecord::Base
 
   accepts_nested_attributes_for :category
 
+  validates :title, uniqueness: true
+  validates :title, presence: true
+
   def average_rating
     number_of_rating = ratings.count
     return "-" if number_of_rating.zero?

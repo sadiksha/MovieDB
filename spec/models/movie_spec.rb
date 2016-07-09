@@ -21,4 +21,21 @@ describe Movie, :type => :model do
     movie = FactoryGirl.create(:movie)
     expect(movie.average_rating).to eq("-")
   end
+
+  context "validates" do
+    it "presence of title" do
+      movie = Movie.new()
+      movie.save
+      errors = {:title => ["can't be blank"]}
+      expect(movie.errors.messages).to eq(errors)
+    end
+
+    it "uniqueness of title" do
+      movie = FactoryGirl.create(:movie, title: "Duplicate Movie")
+      duplicate_movie = Movie.new(title: "Duplicate Movie")
+      duplicate_movie.save
+      errors = {:title => ["has already been taken"]}
+      expect(duplicate_movie.errors.messages).to eq(errors)
+    end
+  end
 end
