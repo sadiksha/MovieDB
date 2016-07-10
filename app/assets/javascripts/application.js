@@ -14,4 +14,13 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-//= require_tree .
+//= require ./environment
+//= require ember
+//= require ember-data
+//= require active-model-adapter
+
+//= require_self
+//= require ./movie-review
+
+// for more details see: http://emberjs.com/guides/application/
+MovieReview = Ember.Application.create();
