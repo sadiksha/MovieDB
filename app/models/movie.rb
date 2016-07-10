@@ -33,4 +33,8 @@ class Movie < ActiveRecord::Base
     end
     searched_movies
   end
+
+  def rating_for_user(current_user)
+    ratings.where(user: current_user).first
+  end
 end

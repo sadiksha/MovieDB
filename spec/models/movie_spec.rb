@@ -78,4 +78,15 @@ describe Movie, :type => :model do
       expect(result.first.title).to eq("First Movie")
     end
   end
+
+  it "returns rating for user" do
+    user = FactoryGirl.create(:user, email: "sadiksha@test.com")
+    movie = FactoryGirl.create(:movie, title: "test")
+    FactoryGirl.create(:rating, movie: movie, score: 1)
+    rating = FactoryGirl.create(:rating, movie: movie, user: user, score: 5)
+    result = movie.rating_for_user(user)
+
+    expect(result.score).to eq(5)
+
+  end
 end

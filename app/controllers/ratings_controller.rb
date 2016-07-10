@@ -25,7 +25,7 @@ class RatingsController < ApplicationController
   def update
     @rating = Rating.find(params[:id])
     @movie = Movie.find(params[:movie_id])
-    @rating.update(score: params[:score])
+    @rating.update_attribute('score', params[:score])
     redirect_to movie_path(@movie)
   end
 
