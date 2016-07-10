@@ -12,7 +12,13 @@ class RatingsController < ApplicationController
   def create
     @movie = Movie.find(params[:movie_id])
     @rating = Rating.new(movie: @movie, user: current_user, score: params["score"])
-    redirect_to movie_path(@movie)
+    if @rating.save
+      flash[:notice] = "Rating is successful."
+      redirect_to movie_path(@movie)
+    else
+      flash[:alert] = "Please sign in before rating."
+      redirect_to new_user_session_path
+    end
   end
 
   def edit
