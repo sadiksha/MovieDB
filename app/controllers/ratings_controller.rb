@@ -13,7 +13,7 @@ class RatingsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @rating = Rating.new(movie: @movie, user: current_user, score: params["score"])
     if @rating.save
-      redirect_to movies_path
+      redirect_to movie_path(@movie)
     end
   end
 
@@ -24,8 +24,9 @@ class RatingsController < ApplicationController
 
   def update
     @rating = Rating.find(params[:id])
+    @movie = Movie.find(params[:movie_id])
     @rating.update(score: params[:score])
-    redirect_to movies_path
+    redirect_to movie_path(@movie)
   end
 
   def destroy
