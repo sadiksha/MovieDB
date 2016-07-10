@@ -65,11 +65,20 @@ describe Rating, :type => :model do
 
     it "cannot be more than 5" do
       user = FactoryGirl.create(:user)
-      rating = Rating.new(score: 7, user: user)
+      movie = FactoryGirl.create(:movie)
+      rating = Rating.new(score: 7, user: user, movie: movie)
       rating.save
       error_message = {:score => ["is not included in the list"]}
 
       expect(rating.errors.messages).to eq(error_message)
     end
+  end
+
+  it "should have user and a movie" do
+    rating = Rating.new(score: 2)
+    rating.save
+    error_message = {:movie => ["can't be blank"],
+                     :user => ["can't be blank"]}
+    expect(rating.errors.messages).to eq(error_message)
   end
 end

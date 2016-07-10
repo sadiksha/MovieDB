@@ -4,6 +4,7 @@ class Rating < ActiveRecord::Base
 
   validate :avoid_duplication
   validates_inclusion_of :score, :in => 1..5
+  validates_presence_of :movie, :user
 
   def self.exists_for_user_and_movie?(movie, user)
     Rating.where(movie: movie, user: user).first
