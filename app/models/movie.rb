@@ -22,11 +22,11 @@ class Movie < ActiveRecord::Base
 
   def self.search(category_id, movie)
     searched_movies = []
-    if category_id.empty? && movie.empty?
+    if category_id.blank? && movie.blank?
       searched_movies = all
-    elsif category_id.empty? && !movie.empty?
+    elsif category_id.blank? && !movie.blank?
       searched_movies = where('title LIKE ?', "%#{movie}%")
-    elsif !category_id.empty? && movie.empty?
+    elsif !category_id.blank? && movie.blank?
       searched_movies = where(category_id: category_id)
     else
       searched_movies = where(category_id: category_id).where('title LIKE ?', "%#{movie}%")
