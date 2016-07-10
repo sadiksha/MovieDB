@@ -38,4 +38,44 @@ describe Movie, :type => :model do
       expect(duplicate_movie.errors.messages).to eq(errors)
     end
   end
+
+  context "searches movies when " do
+    it "no category or movie name is provided" do
+      movie = FactoryGirl.create(:movie, title: "Searched Movie")
+      result = Movie.search("", "")
+      expect(result.first.title).to eq("Searched Movie")
+    end
+
+    it "category is provided but movie name is not provided" do
+      first_category = FactoryGirl.create(:category, name: "search")
+      second_category = FactoryGirl.create(:category, name: "search again")
+      first_movie = FactoryGirl.create(:movie, category: first_category, title: "First")
+      second_movie = FactoryGirl.create(:movie, category: second_category, title: "Second")
+      result = Movie.search(first_category.id.to_s, "")
+
+      expect(result.count).to eq(1)
+      expect(result.first.title).to eq("First")
+    end
+
+    it "category is not provided but movie name is provided" do
+      FactoryGirl.create(:movie, title: "First")
+      FactoryGirl.create(:movie, title: "Second")
+      result = Movie.search("", "Fi")
+
+      expect(result.count).to eq(1)
+      expect(result.first.title).to eq("First")
+    end
+
+    it "category and name both are provided" do
+      first_category = FactoryGirl.create(:category, name: "First")
+      second_category = FactoryGirl.create(:category, name: "Second")
+      first_movie = FactoryGirl.create(:movie, category: first_category, title: "First Movie")
+      first_movie = FactoryGirl.create(:movie, category: first_category, title: "Test")
+      second_movie = FactoryGirl.create(:movie, category: second_category, title: "Second Movie")
+      result = Movie.search(first_category.id.to_s, "First")
+
+      expect(result.count).to eq(1)
+      expect(result.first.title).to eq("First Movie")
+    end
+  end
 end

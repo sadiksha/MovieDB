@@ -19,4 +19,18 @@ class Movie < ActiveRecord::Base
   def has_ratings?(user)
     ratings.where(user: user)
   end
+
+  def self.search(category_id, movie)
+    searched_movies = []
+    if category_id.empty? && movie.empty?
+      searched_movies = all
+    elsif category_id.empty? && !movie.empty?
+      searched_movies = where('title LIKE ?', "%#{movie}%")
+    elsif !category_id.empty? && movie.empty?
+      searched_movies = where(category_id: category_id)
+    else
+      searched_movies = where(category_id: category_id).where('title LIKE ?', "%#{movie}%")
+    end
+    searched_movies
+  end
 end
