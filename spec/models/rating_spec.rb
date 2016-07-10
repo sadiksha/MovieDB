@@ -55,4 +55,21 @@ describe Rating, :type => :model do
     error_messages = []
     expect(error_messages).to be_empty
   end
+
+  context "score" do
+    it "can be between 1 and 5" do
+      rating = FactoryGirl.create(:rating, score: 3)
+      result = rating.score
+      expect(result).to be(3)
+    end
+
+    it "cannot be more than 5" do
+      user = FactoryGirl.create(:user)
+      rating = Rating.new(score: 7, user: user)
+      rating.save
+      error_message = {:score => ["is not included in the list"]}
+
+      expect(rating.errors.messages).to eq(error_message)
+    end
+  end
 end
