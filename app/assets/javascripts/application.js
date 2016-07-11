@@ -14,4 +14,13 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require ./environment
+//= require ember
+//= require ember-data
+//= require active-model-adapter
 //= require_self
+
+//= require ./movie-db
+
+// for more details see: http://emberjs.com/guides/application/
+MovieDB = Ember.Application.create();
