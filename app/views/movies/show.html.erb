@@ -1,13 +1,14 @@
 <h1><%= @movie.title %> </h1>
 <%= @movie.description %>
- <div id='ember-rails-app'>
- </div>
+
+<div id='ember-rails-app'>
+</div>
+
 <script>
   movie_rating = Ember.Object.create({
-    title:  '<%= @movie.title %>',
+    name:  '<%= @movie.title %>',
     score: 0,
     score_array: [1,2,3,4,5]
   });
-
   MovieDB.__container__.lookup('controller:application').set('content', movie_rating);
 </script>
