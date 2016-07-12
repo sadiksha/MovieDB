@@ -1,13 +1,19 @@
 <h1><%= @movie.title %> </h1>
 <%= @movie.description %>
 
-<div id='ember-rails-app'>
-</div>
+<% if current_user %>
+  <div id='ember-rails-app'>
+  </div>
+  <script>
+    window.movie_rating = {
+      id: '<%= @rating.id %>',
+      movie_id: '<%= @movie.id %>'
+    };
 
-<script>
-  window.movie_rating = {
-    id: '<%= @rating.id %>',
-    movie_id: '<%= @movie.id %>'
-  };
+  </script>
+<% else %>
+  <div>
+    Please sign in to rate this movie.
+  </div>
+<% end %>
 
-</script>
