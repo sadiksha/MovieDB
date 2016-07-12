@@ -14,4 +14,8 @@ class Rating < ActiveRecord::Base
       errors.add(:rating, "can't be created twice for same user and movie.")
     end
   end
+
+  def self.exists_for_user_and_movie?(movie, user)
+    Rating.where(movie: movie, user: user).first
+  end
 end
