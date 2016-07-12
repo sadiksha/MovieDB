@@ -22,14 +22,15 @@ class Movie < ActiveRecord::Base
 
   def self.search(category_id, movie)
     searched_movies = []
+    movie = movie.to_s.downcase
     if category_id.blank? && movie.blank?
       searched_movies = all
     elsif category_id.blank? && !movie.blank?
-      searched_movies = where('title LIKE ?', "%#{movie}%")
+      searched_movies = where('lower(title) LIKE ?', "%#{movie}%")
     elsif !category_id.blank? && movie.blank?
       searched_movies = where(category_id: category_id)
     else
-      searched_movies = where(category_id: category_id).where('title LIKE ?', "%#{movie}%")
+      searched_movies = where(category_id: category_id).where('lower(title) LIKE ?', "%#{movie}%")
     end
     searched_movies
   end
