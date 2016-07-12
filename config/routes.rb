@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'movies#index'
 
-  resources :movies do
-    resources :ratings, except: [:show, :index]
-  end
+  resources :movies
 
-  resources :ratings
+  resources :ratings, only: [:create, :show, :update]
 end

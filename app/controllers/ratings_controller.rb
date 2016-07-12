@@ -1,16 +1,6 @@
 class RatingsController < ApplicationController
   respond_to :json
 
-  def new
-    @movie = Movie.find(params[:movie_id])
-    if Rating.exists_for_user_and_movie?(@movie, current_user)
-      flash[:notice] = "You cannot rate one movie twice."
-      redirect_to movies_path
-    else
-      @rating = Rating.new
-    end
-  end
-
   def create
     @movie = Movie.find(params[:movie_id] || params[:rating][:movie_id])
     score = params[:score] || params[:rating][:score]
@@ -22,13 +12,6 @@ class RatingsController < ApplicationController
         render json: { rating: @rating }
       }
     end
-    if @rating.save
-      flash[:notice] = "Rating is successful."
-      redirect_to movie_path(@movie)
-    else
-      flash[:alert] = "Please sign in before rating."
-      redirect_to new_user_session_path
-    end
   end
 
   def show
@@ -38,12 +21,6 @@ class RatingsController < ApplicationController
         render json: { rating: @rating }
       }
      end
-  end
-
-
-  def edit
-    @movie = Movie.find(params[:movie_id])
-    @rating = Rating.find(params[:id])
   end
 
   def update
@@ -57,12 +34,5 @@ class RatingsController < ApplicationController
         render json: { rating: @rating }
       }
     end
-  end
-
-  def destroy
-    @movie = Movie.find(params[:movie_id])
-    @rating = Rating.find(params[:id])
-    @rating.destroy
-    redirect_to movies_path
   end
 end
