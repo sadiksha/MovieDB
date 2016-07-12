@@ -31,3 +31,7 @@ body {
 #user_nav li.dropdown a i.fa-user, span.caret {
   color: #fff;
 }
+
+#movies {
+  padding-top: 20px;
+}

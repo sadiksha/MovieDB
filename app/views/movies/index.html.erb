@@ -3,6 +3,8 @@
 
 <%= form_tag movies_path, :method => 'get', :id => "movies_search" do %>
   <%= render 'search_fields' %>
-  <%= link_to "New Movie", new_movie_path %>
+  <div>
+    <%= link_to "New Movie", new_movie_path, class: 'btn btn-primary' %>
+  </div>
   <div id="movies"><%= render 'movies' %></div>
 <% end %>
