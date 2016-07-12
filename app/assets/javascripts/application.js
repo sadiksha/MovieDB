@@ -26,6 +26,3 @@
 MovieDB = Ember.Application.create({
   root: '#ember-rails-app'
 });
-
-MovieDB.ApplicationController = Ember.Controller.extend({
-})
