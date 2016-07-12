@@ -19,12 +19,15 @@ body {
 }
 
 #user_nav {
-  float: left;
+  float: right;
   max-height: 340px;
   padding-top: 15px;
 }
 
 .navbar-collapse {
-  width: 50%;
   float: left;
+}
+
+#user_nav li.dropdown a i.fa-user, span.caret {
+  color: #fff;
 }
