@@ -12,7 +12,7 @@ class Movie < ActiveRecord::Base
   def average_rating
     number_of_rating = ratings.count
     return "-" if number_of_rating.zero?
-    total_rating = ratings.map(&:score).sum
+    total_rating = ratings.map(&:score).compact.sum
     ((total_rating / number_of_rating.to_f).to_f).round(2)
   end
 

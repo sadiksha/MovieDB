@@ -1,9 +1,11 @@
-<%= javascript_include_tag 'movie-db' %>
-
 <h1><%= @movie.title %> </h1>
 <%= @movie.description %>
 
-<% if current_user %>
+<div>
+  <p>Average Rating: <%= @movie.average_rating.to_s %></p>
+</div>
+<% if user_signed_in? %>
+  <%= javascript_include_tag 'movie-db' %>
   <div id='ember-rails-app'>
   </div>
   <script>
@@ -11,11 +13,5 @@
       id: '<%= @rating.id %>',
       movie_id: '<%= @movie.id %>'
     };
-
   </script>
-<% else %>
-  <div>
-    Please sign in to rate this movie.
-  </div>
 <% end %>
-
