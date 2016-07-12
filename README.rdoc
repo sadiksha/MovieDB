@@ -20,7 +20,9 @@ To Rate a movie:
 * sign in with "testuser@test.com" and password: "123456"
 * Go to movies_path
 * Click a movie title
-* Refresh the page
 * Rate the movie
+
+Run the tests with:
+* rspec
 
 
