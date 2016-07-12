@@ -16,6 +16,12 @@ class RatingsController < ApplicationController
     score = params[:score] || params[:rating][:score]
 
     @rating = Rating.new(movie: @movie, user: current_user, score: score)
+    respond_to do |format|
+      format.html { redirect_to movie_path(@movie) }
+      format.json {
+        render json: { rating: @rating }
+      }
+    end
     if @rating.save
       flash[:notice] = "Rating is successful."
       redirect_to movie_path(@movie)
