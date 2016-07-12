@@ -17,8 +17,5 @@
       <%= f.collection_select :category_id, Category.all, :id, :name, {include_blank: true} %>
     </div>
   </div>
-  <%= f.submit "Create" %>
+  <%= f.submit "Submit", class: 'btn btn-sm btn-primary' %>
 <% end %>
-<style>
-.form-group label {width: 20% }
-</style>
