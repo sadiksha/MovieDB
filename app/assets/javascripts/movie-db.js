@@ -1,3 +1,10 @@
+//= require ./environment
+//= require ember
+//= require ember-data
+//= require active-model-adapter
+//= require ember-template-compiler
+//= require_self
+//
 //= require_tree ./adapters
 //= require_tree ./mixins
 //= require_tree ./models
@@ -8,4 +15,8 @@
 //= require_tree ./templates
 //= require_tree ./routes
 //= require ./router
-//= require_self
+
+// for more details see: http://emberjs.com/guides/application/
+MovieDB = Ember.Application.create({
+  root: '#ember-rails-app'
+});

@@ -13,16 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require ./environment
-//= require ember
-//= require ember-data
-//= require active-model-adapter
-///= require ember-template-compiler
 //= require_self
-
-//= require ./movie-db
-
-// for more details see: http://emberjs.com/guides/application/
-MovieDB = Ember.Application.create({
-  root: '#ember-rails-app'
-});
