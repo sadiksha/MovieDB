@@ -1,4 +1,5 @@
 class Movie < ActiveRecord::Base
+  default_scope { joins(:category).order('categories.name ASC') }
   # has two attributes title and description
   belongs_to :category
   has_many :ratings, dependent: :destroy
