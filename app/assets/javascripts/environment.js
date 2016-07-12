@@ -1,7 +1,6 @@
 window.EmberENV = {
-  // FEATURES: {},
-  // EXTEND_PROTOTYPES: {
-  //    Function: false,
-  //    Array: true
-  // }
-};
+}
+
+window.EmberENV.contentSecurityPolicy = {
+  'connect-src': "'self' http://localhost:3000"
+}

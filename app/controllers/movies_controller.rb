@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-    @score = Rating.find_by(user: current_user, movie: @movie).try(:score)
+    @rating = Rating.find_or_initialize_by(user: current_user, movie: @movie)
   end
 
   def edit

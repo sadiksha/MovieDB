@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :movies do
     resources :ratings, except: [:show, :index]
   end
+
+  resources :ratings
 end

@@ -2,7 +2,7 @@
   <p>Rate Movie:</p>
   <p>Your rating: {{ rating.score }}</p>
 
-  {{#each rating.score_array as |index|}}
+  {{#each score_array as |index|}}
     <input type="radio" name='score' value={{index}}>{{index}}<br>
   {{/each}}
 

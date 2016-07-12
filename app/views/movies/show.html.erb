@@ -5,10 +5,8 @@
 </div>
 
 <script>
-  movie_rating = Ember.Object.create({
-    name:  '<%= @movie.title %>',
-    score: '<%= @score %>',
-    score_array: [1,2,3,4,5]
-  });
-  MovieDB.__container__.lookup('controller:application').set('content', movie_rating);
+  window.movie_rating = {
+    id: '<%= @rating.id %>',
+    movie_id: '<%= @movie.id %>'
+  };
 </script>
