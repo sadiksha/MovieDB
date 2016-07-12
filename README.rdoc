@@ -9,7 +9,7 @@ To be able to run this application, please follow the steps specified below:
 
 And finally
 * rails s
-to get the application running.
+to get the application running at "http://localhost:3000/".
 
 Functionalities:
 * CRUD Movies
