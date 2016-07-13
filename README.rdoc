@@ -1,6 +1,7 @@
 == README
 
 To be able to run this application, please follow the steps specified below:
+* rvm install 2.3.0 (As I used Ruby 2.3.0)
 * git clone git@github.com:sadiksha/MovieDB.git
 * cd MovieDB
 * bundle install
@@ -25,4 +26,7 @@ To Rate a movie:
 Run the tests with:
 * rspec
 
-
+Technologies used:
+* Ruby 2.3.0
+* Rails 4.2.5.1
+* Ember js
