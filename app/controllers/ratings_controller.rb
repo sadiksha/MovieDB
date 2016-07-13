@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+  before_filter :authenticate_user!, only: [:create, :show, :update]
 
   respond_to :json
 
