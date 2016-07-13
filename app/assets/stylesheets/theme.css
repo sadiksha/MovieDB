@@ -34,3 +34,7 @@
     min-height: 20px;
     padding-left: 20px;
 }
+
+.dropdown {
+ list-style-type: none;
+}
